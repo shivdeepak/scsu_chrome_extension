@@ -1,16 +1,20 @@
-window.onload = function(e) {
-    // Single Page Apps (SPAs) don't show the UI elements right away, so we
-    // need to wait for them to load. They are usually avaiable within
-    // first 100-200ms, but if the user's internet connection is slow, we will
-    // retry 10 times with exponential backoff.
-    const timeouts = [100, 200, 300, 500, 800, 1300, 2100, 3400, 5500, 8900];
-    var timeoutIdx = -1;
+(function (window) {
+    function debounce(func, wait) {
+        let timeout;
+        return function(...args) {
+            const context = this;
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                func.apply(context, args);
+            }, wait);
+        };
+    }
 
     function updateLinks() {
-        const extensionName = "YCSU Fix LinkedIn URL"
+        const extensionName = "YCSS Fix LinkedIn URL"
         const linkText = "View on LinkedIn"
-        const customAttribute = "data-ycsu-linkedin-fixup";
-        const anchors = document.querySelectorAll('a');
+        const customAttribute = "data-ycss-linkedin-fixup";
+        const anchors = window.document.querySelectorAll('a');
         let linkElement;
 
         for (let anchor of anchors) {
@@ -35,11 +39,31 @@ window.onload = function(e) {
                 }
             }
         }
+    }
 
-        if (timeoutIdx < timeouts.length) {
-            setTimeout(updateLinks, timeouts[++timeoutIdx])
+    let updateLinksDebounced = debounce(function() {
+        updateLinks();
+    }, 500);
+
+    function updateLinksWithTimeout() {
+        updateLinks();
+
+        setTimeout(updateLinksWithTimeout, 500)
+    }
+
+    function updateLinksWithMutationObserver() {
+        const targetNodes = document.getElementsByClassName("top-container");
+        for (let targetNode of targetNodes) {
+            const observer = new MutationObserver(updateLinksDebounced);
+            observer.observe(targetNode, {childList: true, subtree: true});
         }
     }
 
-    updateLinks();
-}
+    window.onload = function(e) {
+        if ('MutationObserver' in window) {
+            updateLinksWithMutationObserver();
+        } else {
+            updateLinksWithTimeout();
+        }
+    }
+})(window);
