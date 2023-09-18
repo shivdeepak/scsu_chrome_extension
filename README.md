@@ -1,15 +1,15 @@
 # YC Startup School - Fix LinkedIn URL
 
-YC Startup School Co-Founder Matching is an excellent place to find and meet people who are interested in building startups.
+YC Startup School Co-Founder Matching is an excellent place to find and meet people interested in building startups.
 
-The "View on LinkedIn" link on the user profiles is broken because of an error in the HTML markup, and this extension fixes that.
+I have noticed that when I click on the "View on LinkedIn" link on user profiles, it refreshes the page and doesn't open the LinkedIn profile. I tried Incognito mode, and the functionality works fine. The problem is due to a conflict with one of the Chrome extensions installed on my browser, and I have too many of them to figure out which one is breaking the functionality. So, I wrote a simple extension to fix it.
 
-It is a very light weight extension, and completely safe to use. It doesn't collect any data, and it doesn't make any network requests. You can audit the source at https://github.com/shivdeepak/ycsu_chrome_extension/blob/main/content.js
+It is a very lightweight extension and entirely safe for use. It doesn't collect any data, and it doesn't make any network requests. You can audit the source at https://github.com/shivdeepak/ycsu_chrome_extension/blob/main/content.js
 
 
 # Installation
 
-This Extension is currently under review on chrome webstore, and it will take some time for it to be available there. In the mean time you can follow these instructions to install it manually.
+This Extension is currently under review on the Chrome web store, and it will take some time for it to be available there. In the meantime, you'll need to follow these instructions to install it manually.
 
 1. Clone/Download this repository (unzip it if required).
 2. Open Chrome and go to `chrome://extensions/`.
