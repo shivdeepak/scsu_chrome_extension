@@ -2,7 +2,7 @@
 
 YC Startup School Co-Founder Matching is an excellent place to find and meet people interested in building startups.
 
-I have noticed that when I click on the "View on LinkedIn" link on user profiles, it refreshes the page and doesn't open the LinkedIn profile. I tried Incognito mode, and the functionality works fine. The problem is due to a conflict with one of the Chrome extensions installed on my browser, and I have too many of them to figure out which one is breaking the functionality. So, I wrote a simple extension to fix it.
+I have noticed that when I `CMD` + click on the "View on LinkedIn" link on user profiles, it opens the same page in the new tab and doesn't open the LinkedIn profile. This happens because the Startup School website uses JavaScript to open the link, and the HTML Anchor Tag points to itself. It's a bit annoying because I am quite used to `CMD` + click, and the website breaks that functionality. So, I wrote a simple extension to fix it.
 
 It is a very lightweight extension and entirely safe for use. It doesn't collect any data, and it doesn't make any network requests. You can audit the source at https://github.com/shivdeepak/ycsu_chrome_extension/blob/main/content.js
 
