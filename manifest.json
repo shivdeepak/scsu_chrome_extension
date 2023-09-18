@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "YC Startup School - Fix LinkedIn URL",
   "version": "1.0.0",
-  "description": "This extension fixes broken 'View on LinkedIn' button on the YC Startup School website. This extension is completely safe, and doesn't collect any data. You can audit the source code at: https://github.com/shivdeepak/ycsu_chrome_extension",
+  "description": "This extension fixes broken 'View on LinkedIn' button on the YC Startup School website.",
   "permissions": ["activeTab"],
   "content_scripts": [
     {
