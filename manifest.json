@@ -3,7 +3,7 @@
   "name": "YC Startup School - Fix LinkedIn URL",
   "version": "1.0.0",
   "description": "This extension fixes broken 'View on LinkedIn' button on the YC Startup School website.",
-  "permissions": ["activeTab"],
+  "permissions": [],
   "content_scripts": [
     {
       "matches": ["*://startupschool.org/*", "*://*.startupschool.org/*"],
